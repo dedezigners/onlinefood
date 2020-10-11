@@ -44,7 +44,7 @@ class UserManagementController extends Controller
             Session::put('firstName', $user->firstName);
             Session::put('lastName', $user->lastName);
             Session::put('email', $user->email);
-            return redirect()->route('home');
+            return redirect()->route('restaurant');
         }else{
             session()->flash('error', 'Invalid credentials');
             return redirect()->back();

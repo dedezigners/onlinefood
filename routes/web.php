@@ -29,6 +29,7 @@ Route::post('/forgotPassword', 'Front\UserManagementController@process_forgotPas
 Route::get('logout','Front\UserManagementController@logout')->name('logout');
 
 Route::get('/restaurant','Front\HomeController@restaurant')->name('restaurant');
+Route::get('/restaurant/{id}','Front\HomeController@restaurantDetail')->name('restaurant.deatil');
 Route::get('/view/{id}/foodItems','Front\HomeController@listItems');
 Route::get('/book/{id}/seats','Front\HomeController@bookSeats')->name('bookSeats');
 Route::get('/add-to-cart/{category_id}/{fooditem_id}', 'Front\HomeController@addToCart');

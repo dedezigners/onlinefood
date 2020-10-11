@@ -2,6 +2,7 @@
 <!-- ================ start footer Area ================= -->
 <footer class="footer-area section-gap">
     <div class="container">
+        <!-- 
         <div class="row">
             <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
                 <h4>Top Products</h4>
@@ -61,12 +62,12 @@
                         <div class="info"></div>
                     </form>
                 </div>
-
             </div>
         </div>
+         -->
         <div class="footer-bottom row align-items-center text-center text-lg-left">
             <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Online Restaurant& Food Order
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Online Restaurant & Food Order
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
                 <a href="#"><i class="ti-facebook"></i></a>

@@ -24,7 +24,7 @@ class OrderManagementController extends Controller
     public function orderDetail($orderId)
     {
         $ModuleSlug = 'Order History';
-        $order = Order::select('orders.*', 'u.firstName', 'u.lastName', 'cd.name', 'cd.number', 'cd.exp_month', 'cd.exp_year', 'cd.cvc')
+        $order = Order::select('orders.*', 'u.firstName', 'u.lastName', 'cd.name', 'cd.number')
         ->join('users as u', 'u.id', '=', 'orders.user_id')
         ->join('card_details as cd', 'cd.order_id', '=', 'orders.id')
         ->where('orders.id', $orderId)

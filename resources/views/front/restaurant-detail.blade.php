@@ -3,27 +3,8 @@
 <section class="hero-banner hero-banner-sm">
     <div class="hero-wrapper">
         <div class="hero-left">
-            <h1 class="hero-title">{{ $categoryName }}</h1>
-            <!-- 
-            <ul class="hero-info d-none d-lg-block">
-               @foreach($foodItems as $list)
-                <li>
-                    <img src="/public/front/img/banner/fas-service-icon.png" alt="">
-                    <h4>{{$list->itemName}}</h4>
-                </li>
-                @endforeach
-            </ul>
-            -->
+            <h1 class="hero-title">{{ $restaurantName }}</h1>
         </div>
-        <!--
-        <div class="hero-right">
-            <div class="owl-carousel owl-theme w-100 hero-carousel">
-                <div class="hero-carousel-item">
-                    <img class="img-fluid" src="/public/front/img/banner/hero-banner-sm.png" alt="">
-                </div>
-            </div>
-        </div>
-        -->
     </div>
 </section>
 
@@ -71,21 +52,29 @@
         </div>
         <div class="row">
             @if (count($foodItems))
-            @foreach($foodItems as $item)
-              <div class="col-lg-6">
+            @foreach($foodItems as $key => $itemData)
+
+            <div class="col-12 text-center mb-2">
+                <h4>{{ $key }}</h4>
+            </div>
+
+            @foreach($itemData as $item)
+            <div class="col-lg-6">
                 <div class="media align-items-center food-card">
                     <img class="mr-3 mr-sm-4" src="/public/front/img/home/food1.png">
                     <div class="media-body">
                         <div class="d-flex justify-content-between food-card-title">
                             <h4>{{ $item->itemName }}</h4>
                             <h3 class="price-tag">
-                                <a href="{{ '/add-to-cart/' . $categoryId . '/' . $item->foodItemsID }}">Add to Cart</a>
+                                <a href="{{ '/add-to-cart/' . $item->categoryID . '/' . $item->foodItemsID }}">Add to Cart</a>
                             </h3>
                         </div>
                         <h5>Price: ${{ $item->itemPrice }}.00</h5>
                     </div>
                 </div>
             </div>
+            @endforeach
+
             @endforeach
             @else
 

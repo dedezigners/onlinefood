@@ -20,7 +20,39 @@
                 </div>
 
                 <div class="row mb-3">
-                    Welcome to dashboard
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h4>Total Categories</h4>
+                                <h1 class="text-center mb0">{{ $categoryCount > 9 ? $categoryCount : '0'. $categoryCount }}</h1>
+                            </div>
+                            <div class="card-footer">
+                                <a href="/admin/category">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h4>Total Reservations</h4>
+                                <h1 class="text-center mb0">{{ $reservationCount > 9 ? $reservationCount : '0'. $reservationCount }}</h1>
+                            </div>
+                            <div class="card-footer">
+                                <a href="/admin/reservation">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card bg-info text-white">
+                            <div class="card-body">
+                                <h4>Total Orders</h4>
+                                <h1 class="text-center mb0">{{ $orderCount > 9 ? $orderCount : '0'. $orderCount }}</h1>
+                            </div>
+                            <div class="card-footer">
+                                <a href="/admin/orders">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--Row-->
 

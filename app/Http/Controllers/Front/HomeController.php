@@ -68,6 +68,31 @@ class HomeController extends Controller
         return view('front.restaurant', compact('ModuleSlug','RestaurantList', 'searchWith'));
     }
 
+    public function restaurantDetail(Request $request, $id)
+    {
+        $ModuleSlug = $this->ModuleSlug;
+        $searchWith = '';
+        $restaurantName = Restaurant::where('restaurantID', $id)->pluck('restaurantName')->first();
+
+        if ($request->input('s')) {
+            $searchWith = $request->input('s');
+
+            $foodItems = FoodItems::select('foodItems.*', 'c.categoryName as category')
+            ->join('category as c', 'c.categoryID', '=', 'foodItems.categoryID')
+            ->where('foodItems.itemName', 'like', "%$searchWith%")
+            ->where('foodItems.restaurantID', $id)->get();
+
+        } else {
+
+            $foodItems = FoodItems::select('foodItems.*', 'c.categoryName as category')
+            ->join('category as c', 'c.categoryID', '=', 'foodItems.categoryID')
+            ->where('foodItems.restaurantID', $id)->get();
+        }
+
+        $foodItems = $foodItems->groupBy('category');
+        return view('front.restaurant-detail', compact('ModuleSlug','restaurantName', 'searchWith', 'foodItems'));
+    }
+
     public function listItems(Request $request, $id)
     {
         $ModuleSlug     = $this->ModuleSlug;
@@ -137,11 +162,13 @@ class HomeController extends Controller
             'restaurant_id'=>'required',
             'card_name' => 'required|string',
             'card_number' => 'required|size:16',
-            'exp_month' => 'required',
-            'exp_year' => 'required',
+            'exp_month' => 'required|integer',
+            'exp_year' => 'required|integer',
             'card_cvc' => 'required|size:3',
             'items' => 'array',
             'total_amount' => 'integer'
+        ], [
+            'integer' => 'Please select :attribute field'
         ]);
 
         if ($validateData->fails()) {
@@ -191,11 +218,13 @@ class HomeController extends Controller
             'total_people' => 'required',
             'card_name' => 'required|string',
             'card_number' => 'required|size:16',
-            'exp_month' => 'required',
-            'exp_year' => 'required',
+            'exp_month' => 'required|integer',
+            'exp_year' => 'required|integer',
             'card_cvc' => 'required|size:3',
+        ], [
+            'integer' => 'Please select :attribute field'
         ]);
-
+        
         if ($validateData->fails()) {
             $restaurant = Restaurant::where('restaurantID', $request->restaurant_id)->first();
 

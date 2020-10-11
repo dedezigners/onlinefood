@@ -66,15 +66,7 @@
                                     </tr>
                                     <tr>
                                         <th>Card Number</th>
-                                        <td>{{ $order->number }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Card Expire</th>
-                                        <td>{{ $order->exp_month . ' / ' . $order->exp_year }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Card CVC</th>
-                                        <td>{{ $order->cvc }}</td>
+                                        <td>{{ substr($order->number, 0, 2) . '** **** **** ' . substr($order->number, -4) }}</td>
                                     </tr>
                                 </table>
                             </div>

@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" value="{{old('phoneNumber')}}">
+                                <input type="number" class="form-control" name="phoneNumber" placeholder="Phone Number" value="{{old('phoneNumber')}}">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="ti-headphone-alt"></i></span>
                                 </div>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="number" name="size" class="form-control" placeholder="Select People" value="{{old('size')}}">
+                                <input type="number" min="1" name="size" class="form-control" placeholder="Select People" value="{{old('size')}}">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="ti-layout-column3"></i></span>
                                 </div>
